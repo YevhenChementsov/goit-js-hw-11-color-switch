@@ -20,12 +20,14 @@ const colorSwitcher = function () {
   timerId = setInterval(() => {
     document.body.style.backgroundColor = `${colors[randomIntegerFromInterval(0, 5)]}`
   }, 1000);
-  startButton.removeEventListener('click', colorSwitcher);
-};
+  startButton.setAttribute('disabled', true);
+  // startButton.removeEventListener('click', colorSwitcher);
+}
 
 startButton.addEventListener('click', colorSwitcher);
 
 stopButton.addEventListener('click', () => {
   clearTimeout(timerId);
-  startButton.addEventListener('click', colorSwitcher);
-});
+  startButton.removeAttribute('disabled');
+  // startButton.addEventListener('click', colorSwitcher);
+  });
